@@ -1,0 +1,21 @@
+[Unit]
+Description=Daemon systemd for restart server Minecraft
+
+[Service]
+Type=oneshot
+ExecStart=tmux send -t main.0 'say Перезагрузка будет произведена через 1 минуту' ENTER
+ExecStart=sleep 30
+ExecStart=tmux send -t main.0 'say Перезагрузка будет произведена через 30 секунд' ENTER
+ExecStart=sleep 15
+ExecStart=tmux send -t main.0 'say Перезагрузка будет произведена через 15 секунд' ENTER
+ExecStart=sleep 5
+ExecStart=tmux send -t main.0 'say Перезагрузка будет произведена через 10 секунд' ENTER
+ExecStart=sleep 5
+ExecStart=tmux send -t main.0 'say Перезагрузка будет произведена через 5 секунд' ENTER
+ExecStart=sleep 5
+ExecStart=tmux send -t main.0 'say Перезагрузка будет произведена сейчас!' ENTER
+ExecStart=sleep 4
+ExecStart=tmux send -t main.0 'stop' ENTER
+
+[Install]
+WantedBy=multi-user.target
